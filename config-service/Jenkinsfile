@@ -1,5 +1,5 @@
 node('dind-node') {
-  withMaven(maven:'M3') {
+  withMaven(maven) {
     stage('Checkout') {
       git url: 'https://github.com/savvyk/sample-spring-microservices-new.git', credentialsId: 'savvyk', branch: 'master'
     }
