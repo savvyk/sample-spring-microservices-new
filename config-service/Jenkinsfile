@@ -14,10 +14,8 @@ node('dind-node') {
     }
     stage('Image') {
       dir ('config-service') {
-        docker.withRegistry('https://localhost:5000') {
-          def app = docker.build "piomin/config-service:${env.version}"
+          def app = docker.build "localhost:5000/config-service:${env.version}"
           app.push()
-        }
       }
     }
   }
