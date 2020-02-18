@@ -14,9 +14,10 @@ node('master') {
     }
     stage('Image') {
       dir ('config-service') {
-          docker.withRegistry('https://localhost:5000') {
+        docker.withRegistry('https://localhost:5000') {
           def app = docker.build "savvyk/config-service:${env.version}"
           app.push()
+        }  
       }
     }
   }
